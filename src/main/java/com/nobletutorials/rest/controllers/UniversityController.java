@@ -1,5 +1,6 @@
 package com.nobletutorials.rest.controllers;
 
+import com.nobletutorials.rest.models.Student;
 import com.nobletutorials.rest.models.University;
 import com.nobletutorials.rest.services.UniversityService;
 import org.springframework.validation.annotation.Validated;
@@ -40,5 +41,12 @@ public class UniversityController {
     @PatchMapping(value = "{id}")
     public University updateUniversity(@PathVariable Long id, @RequestBody University university) {
         return universityService.update(id, university);
+    }
+
+    @PostMapping(value = "{id}/students")
+    public Student createStudent(@PathVariable Long id,
+                                 @Validated(Student.Create.class)
+                                 @RequestBody Student student){
+        return universityService.createStudent(id, student);
     }
 }

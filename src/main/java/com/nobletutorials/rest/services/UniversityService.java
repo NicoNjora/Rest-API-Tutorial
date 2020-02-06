@@ -1,5 +1,6 @@
 package com.nobletutorials.rest.services;
 
+import com.nobletutorials.rest.models.Student;
 import com.nobletutorials.rest.models.University;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface UniversityService {
     University createUniversity(University university);
 
     University update(Long id, University university);
+
+    Student createStudent(Long universityId, Student student);
 }
